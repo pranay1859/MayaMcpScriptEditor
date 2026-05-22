@@ -8,19 +8,21 @@ A Claude Code **skill** repository. The only deliverable is `maya-mcp-builder.sk
 
 ## Working with the skill file
 
-The `.skill` file is a ZIP archive. To inspect or modify its contents, unzip it:
+The `.skill` file is a ZIP archive. The `maya-mcp-builder/` directory in this repo **is** the extracted skill — edit files there directly.
+
+To repackage after editing:
+
+```powershell
+Compress-Archive -Path maya-mcp-builder\* -DestinationPath maya-mcp-builder.zip -Force
+Copy-Item maya-mcp-builder.zip maya-mcp-builder.skill -Force
+Remove-Item maya-mcp-builder.zip
+```
+
+To extract a `.skill` file for inspection (flat contents → into a folder):
 
 ```powershell
 Expand-Archive maya-mcp-builder.skill -DestinationPath maya-mcp-builder -Force
 ```
-
-After editing, repackage:
-
-```powershell
-Compress-Archive -Path maya-mcp-builder\* -DestinationPath maya-mcp-builder.skill -Force
-```
-
-The internal structure must remain rooted at `maya-mcp-builder/` with `SKILL.md` at `maya-mcp-builder/SKILL.md`.
 
 ## Skill contents
 

@@ -1,0 +1,22 @@
+{
+  "_comment": "Pick ONE of the two configurations below. Delete this comment block before using.",
+
+  "_local": "Use this when Maya is running on THE SAME machine as Claude Desktop.",
+  "mcpServers_local_example": {
+    "maya": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://localhost:6275/mcp"]
+    }
+  },
+
+  "_remote": "Use this when Maya is running on A DIFFERENT machine (e.g. a workstation at the studio).",
+  "_remote_prereq": "The Maya machine must have MAYA_MCP_HOST=0.0.0.0 set before Maya starts.",
+  "mcpServers": {
+    "maya": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://<MAYA_MACHINE_IP>:6275/mcp"]
+    }
+  },
+
+  "_security": "Replace <MAYA_MACHINE_IP> with the actual IP or hostname. Only use this inside a studio VPN or with a firewall rule — no auth is built in."
+}
